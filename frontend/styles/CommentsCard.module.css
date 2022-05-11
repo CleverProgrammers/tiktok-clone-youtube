@@ -1,0 +1,45 @@
+.wrapper {
+  display: flex;
+  padding: 20px;
+  padding-right: 10px;
+  padding-bottom: 0;
+  padding-top: 10px;
+  font-size: 0.9rem;
+}
+
+.textContainer {
+  text-align: left;
+  margin-left: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.avatar {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.username {
+  opacity: 0.5;
+}
+
+.replyBit {
+  cursor: pointer;
+  margin-left: 10px;
+  opacity: 0.8;
+}
+
+.commentText {
+  margin: 4px 0;
+  font-size: 1rem;
+}
+
+.timestamp {
+  opacity: 0.5;
+}
+
+.button {
+  opacity: 0.3;
+}

@@ -1,0 +1,71 @@
+.wrapper {
+  text-align: center;
+  background: #fff;
+  width: 100%;
+  height: 60%;
+  padding: 20px 0;
+  position: absolute;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  bottom: 0;
+  left: 0;
+  animation: comments 0.2s ease-in-out;
+}
+
+.commentsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  margin-top: -20px;
+}
+
+.closeButton {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+@keyframes wrapper {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.button {
+  background: #4e44ce;
+  padding: 0.6rem 1rem;
+  border-radius: 0.6rem;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s linear;
+  max-width: 10rem;
+  min-width: 5.5rem;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  font-weight: 600;
+  font-size: 0.8rem;
+  border: none;
+}
+.commentInputWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 11rem;
+  padding: 10px;
+}
+
+.commentInputWrapper input {
+  border: none;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  font-size: 1rem;
+}

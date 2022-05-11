@@ -1,0 +1,52 @@
+.footer {
+  position: relative;
+  color: white;
+  bottom: 150px;
+  margin-left: 40px;
+  display: flex;
+}
+
+.footerText {
+  flex: 1;
+}
+
+.footerText > p {
+  padding-bottom: 20px;
+}
+
+.footerRecord {
+  animation: spinTheRecord infinite 5s linear;
+  height: 50px;
+  filter: invert(1);
+  position: absolute;
+  bottom: 0;
+  right: 20px;
+}
+
+.footerIcon {
+  position: absolute;
+}
+
+.footerTIcker > .ticker {
+  height: fit-content;
+  margin-left: 30px;
+  width: 60%;
+}
+
+.footer__text > h3 {
+  padding-bottom: 20px;
+}
+
+.footerTIcker h1 {
+  padding-top: 7px;
+}
+
+@keyframes spinTheRecord {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

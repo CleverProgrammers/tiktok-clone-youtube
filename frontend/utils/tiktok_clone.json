@@ -1,0 +1,429 @@
+{
+  "version": "0.1.0",
+  "name": "tiktok_clone",
+  "instructions": [
+    {
+      "name": "createState",
+      "accounts": [
+        {
+          "name": "state",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "createUser",
+      "accounts": [
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "profileUrl",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "createVideo",
+      "accounts": [
+        {
+          "name": "state",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "video",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "name": "videoUrl",
+          "type": "string"
+        },
+        {
+          "name": "creatorName",
+          "type": "string"
+        },
+        {
+          "name": "creatorUrl",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "createComment",
+      "accounts": [
+        {
+          "name": "video",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "comment",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "text",
+          "type": "string"
+        },
+        {
+          "name": "commenterName",
+          "type": "string"
+        },
+        {
+          "name": "commenterUrl",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "approve",
+      "accounts": [
+        {
+          "name": "video",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "comment",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "disapprove",
+      "accounts": [
+        {
+          "name": "video",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "comment",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "likeVideo",
+      "accounts": [
+        {
+          "name": "video",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    }
+  ],
+  "accounts": [
+    {
+      "name": "StateAccount",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "authority",
+            "type": "publicKey"
+          },
+          {
+            "name": "videoCount",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "UserAccount",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "userName",
+            "type": "string"
+          },
+          {
+            "name": "userWalletAddress",
+            "type": "publicKey"
+          },
+          {
+            "name": "userProfileImageUrl",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "VideoAccount",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "authority",
+            "type": "publicKey"
+          },
+          {
+            "name": "description",
+            "type": "string"
+          },
+          {
+            "name": "videoUrl",
+            "type": "string"
+          },
+          {
+            "name": "creatorName",
+            "type": "string"
+          },
+          {
+            "name": "creatorUrl",
+            "type": "string"
+          },
+          {
+            "name": "commentCount",
+            "type": "u64"
+          },
+          {
+            "name": "index",
+            "type": "u64"
+          },
+          {
+            "name": "creatorTime",
+            "type": "i64"
+          },
+          {
+            "name": "peopleWhoLiked",
+            "type": {
+              "vec": "publicKey"
+            }
+          },
+          {
+            "name": "likes",
+            "type": "u8"
+          },
+          {
+            "name": "remove",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CommentAccount",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "authority",
+            "type": "publicKey"
+          },
+          {
+            "name": "text",
+            "type": "string"
+          },
+          {
+            "name": "commenterName",
+            "type": "string"
+          },
+          {
+            "name": "commenterUrl",
+            "type": "string"
+          },
+          {
+            "name": "index",
+            "type": "u64"
+          },
+          {
+            "name": "videoTime",
+            "type": "i64"
+          }
+        ]
+      }
+    }
+  ],
+  "types": [
+    {
+      "name": "Errors",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "CannotCreateUser"
+          },
+          {
+            "name": "CannotCreateVideo"
+          },
+          {
+            "name": "ReachedMaxLikes"
+          },
+          {
+            "name": "UserLikedVideo"
+          },
+          {
+            "name": "UserCensoredVideo"
+          }
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "address": "Az4edEtU6JtghfueC4hS7Fo5fG3evPY5VUt6YbNHmhaN"
+  }
+}

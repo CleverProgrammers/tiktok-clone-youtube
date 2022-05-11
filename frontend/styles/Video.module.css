@@ -1,0 +1,13 @@
+.wrapper {
+  position: relative;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  scroll-snap-align: start;
+}
+
+.videoPlayer {
+  object-fit: fill;
+  width: 100%;
+  height: 100%;
+}
